@@ -6,16 +6,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import cors from 'cors';
-
-import swaggerUi from 'swagger-ui-express';
-import swaggerDocument from './swagger.json';
-
-// Routers
-import studentsRouter from  './routes/stundent-routes.js';
-import teachersRouter from  './routes/teacher-routes.js';
-import enrollmentsRouter from  './routes/enrollment-routes.js';
-import lecturesRouter from  './routes/lecture-routes.js';
-import classesRouter from  './routes/class-routes.js';
+import weatherRouter from './routes/weather-routes.js'
 
 let app = express();
 
@@ -25,19 +16,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
-app.use('/students', studentsRouter);
-app.use('/teachers', teachersRouter);
-app.use('/enrollments', enrollmentsRouter);
-app.use('/lectures', lecturesRouter);
-app.use('/classes', classesRouter);
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/search-location-weather', weatherRouter);
 
 
-app.listen(3000, ()=>{
-    console.log("listening on 3000");
+
+app.listen(3001, ()=>{
+    console.log("listening on 3001");
 });
 
 
-// to be deleted
-import repo from './persistency/data-population-repository.js';
