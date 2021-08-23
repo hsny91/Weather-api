@@ -6,7 +6,8 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import cors from 'cors';
-import weatherRouter from './routes/weather-routes.js'
+import weatherRouter from './routes/weatherSearch-router.js'
+import mapRouter from './routes/mapSearch-router.js'
 
 let app = express();
 
@@ -18,7 +19,7 @@ app.use(cors());
 
 
 app.use('/search-location-weather', weatherRouter);
-
+app.use('/search-map-weather', mapRouter);
 
 
 app.listen(3001, ()=>{

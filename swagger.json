@@ -46,6 +46,21 @@
         ],
         "responses": {}
       }
+    },
+    "/search-map-weather/{city}": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
     }
   },
   "definitions": {
